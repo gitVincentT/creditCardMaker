@@ -1,7 +1,6 @@
 import string
 import random
 from random import choice 
-
 """
 CC generator: core functionality
     1. 16 digit number 
@@ -29,7 +28,7 @@ def month():
     #If 1-9, it should have 0 in front of it 
     #If 10+, 2nd digit should be 0, 1, or 2
     m = (random.randint (1,12))
-    if m < 10: #
+    if m < 10: 
         return (str(0) + str(m)) 
     else : 
         return m
@@ -40,34 +39,25 @@ def year():
     y = random.randrange (21,30)
     return y 
     
-def three_DIGIT():
+def DIGIT(x):
     chars = string.digits
-    random = ''.join(choice(chars) for _ in range(3))
+    random = ''.join(choice(chars) for _ in range(x))
     return random
-
-def four_DIGIT():
-    chars = string.digits
-    random = ''.join(choice(chars) for _ in range(4))
-    return random
-
-
 
 def ccNumber():
-    a = str(four_DIGIT())
-    b = str(four_DIGIT())
-    c = str(four_DIGIT())
-    d = str(four_DIGIT())
-    
-    print("CC Number: " + a + " " + b + " " + c + " " + d)
+    x = ""
+    for _ in range(4):
+        x = str(DIGIT(4)) + " " + x
+    print ("CC#: " + (str(x)))
 
 def expDate():
     a = str(month())
     b = str(year())
-    print("Exp Date: " + a + "/" + b)
+    print("Exp: " + a + "/" + b)
 
 def cvCode():
-    a = three_DIGIT()
-    print("CV Code: " + str(a))
+    a = (DIGIT(3))
+    print("CV: " + str(a))
     
 ccNumber()
 expDate()
